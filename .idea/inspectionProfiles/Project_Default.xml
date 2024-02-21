@@ -1,0 +1,61 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W605" />
+          <option value="E721" />
+          <option value="E731" />
+          <option value="E501" />
+          <option value="W292" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N803" />
+        </list>
+      </option>
+      <option name="ignoredBaseClasses">
+        <list>
+          <option value="unittest.TestCase" />
+          <option value="unittest.case.TestCase" />
+          <option value="pythonProject.innodom.lessons.lesson_14.Admin" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="eval" />
+          <option value="next" />
+          <option value="id" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnboundLocalVariableInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" editorAttributes="INFO_ATTRIBUTES" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="tuple.append" />
+          <option value="lst.append" />
+          <option value="str.append" />
+          <option value="int.append" />
+          <option value="dict.add" />
+          <option value="csv.DictReader.__getitem__" />
+          <option value="pythonProject.innodom.homeworks_practic_in_lection.big_project_homework_in_lection.big_homework.Comment.NewsManagementSystem.tags" />
+          <option value="object.email" />
+          <option value="object.id" />
+          <option value="object.first_name" />
+          <option value="object.last_name" />
+          <option value="object.phone" />
+          <option value="object.created_at" />
+          <option value="object.role" />
+          <option value="object.password" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
