@@ -1,0 +1,47 @@
+{% extends "questions/main.html" %}
+
+{% block title %}
+    Retrieve Question Generic View
+{% endblock %}
+
+{% block content %}
+    <html>
+    <head>
+        <title>Retrieve Question</title>
+    </head>
+    <body>
+        <h1>Retrieve Question</h1>
+        <form id="questionForm" method="GET">
+            <button type="submit">Get Question</button>
+        </form>
+
+        <div id="questionData">
+            <!-- Question data will be displayed here -->
+        </div>
+
+        <script>
+            const questionForm = document.querySelector('#questionForm');
+            const questionData = document.querySelector('#questionData');
+
+            questionForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                fetch('/api/questions/{question_id}')
+                    .then(response => response.json())
+                    .then(data => {
+                        // Display question data in the questionData div
+                        questionData.innerHTML = `
+                            <h2>Question ID: ${data.id}</h2>
+                            <p>Question Text: ${data.text}</p>
+                            <p>Question Category: ${data.category}</p>
+                            <!-- Display other question properties as needed -->
+                    `   ;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        </script>
+    </body>
+    </html>
+{% endblock %}

@@ -36,13 +36,13 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('text', models.TextField()),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='questions.question')),
+                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='surveys.question')),
             ],
         ),
         migrations.AddField(
             model_name='question',
             name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='questions.survey'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='surveys.survey'),
         ),
         migrations.CreateModel(
             name='UserResponse',
@@ -50,8 +50,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('text_response', models.TextField(blank=True)),
                 ('user_id', models.IntegerField()),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='questions.question')),
-                ('selected_option', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='questions.answeroption')),
+                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='surveys.question')),
+                ('selected_option', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='surveys.answeroption')),
             ],
         ),
     ]

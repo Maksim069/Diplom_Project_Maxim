@@ -1,0 +1,100 @@
+{% extends "questions/main.html" %}
+
+{% block title %}
+    Create New Survey
+{% endblock %}
+
+{% block content %}
+    <div class="new-survey-title">
+        Create New Survey
+    </div>
+    <div class="new-survey-container">
+         <form method="post">
+             {% csrf_token %}
+             <div class="mb-3">
+                 <label for='title' class='form-label'>Title</label>
+                 <input type="text" class="form-control" id="title" name="title" maxlength="30" placeholder="Write title:">
+             </div>
+
+             <div class="mb-3">
+                 <label for='description' class='form-label'>Description</label>
+                 <textarea class="form-control" id="description" name="description" maxlength="1500"
+                           placeholder="Write description:"></textarea>
+             </div>
+
+             <div class="mb-3">
+                <label for="creator" class="form-label">Creator</label>
+                 <input type="text" class="form-control" id="creator" name="creator" maxlength="20" placeholder="Write your email address:">
+             </div>
+
+             <div class="mb-3">
+                 <label for='question' class='form-label'>Question</label>
+                     <select class="form-control" id="question" name="question">
+                        <option value="" selected="">Single Choice</option>
+                        <option value="" selected="">Multiple Choice</option>
+                        <option value="" selected="">Text Answer</option>
+                        <option value="" selected="">---</option>
+                     </select>
+             </div>
+
+            <div id="answer-options-container">
+            <div class="mb-3">
+                <label for="answer_option" class="form-label">AnswerOption</label>
+                <input type="text" class="form-control answer-option-input" id="answer_option" maxlength="30" name="answer_">
+                <button type="button" class="btn btn-primary" onclick="addAnswerOption()">+</button>
+                <button type="button" class="btn btn-danger" onclick="removeAnswerOption(this)">-</button>
+            </div>
+            </div>
+
+            <script>
+            function addAnswerOption() {
+            var container = document.getElementById("answer-options-container");
+            var existingField = container.querySelector(".mb-3");
+            var newField = existingField.cloneNode(true);
+            newField.querySelector(".answer-option-input").value = "";
+            container.appendChild(newField);
+            }
+
+            function removeAnswerOption(button) {
+            var field = button.parentNode;
+            var container = field.parentNode;
+            // Проверка на количество полей
+            if (container.childElementCount > 1) {
+            container.removeChild(field);
+            }
+            }
+            </script>
+
+             <div class="mb-3">
+                 <label for='user_response' class='form-label'>UserResponse</label>
+                 <input type="text" class="form-control" id="user_response" name="user_response" placeholder="User response">
+             </div>
+
+             <div class="mb-3">
+                 <label for='start_date' class='form-label'>StartDate</label>
+                 <input type="date" class="form-control" id="start_date" name="start_date">
+             </div>
+
+             <div class="mb-3">
+                 <label for='end_date' class='form-label'>EndDate</label>
+                 <input type="date" class="form-control" id="end_date" name="end_date">
+             </div>
+
+             <div class="mb-3">
+                 <label></label>
+                 <label></label>
+                 <label></label>
+                 <label></label>
+                 <label></label>
+                 <label></label>
+                 <input type="checkbox" class="form-check-input" id="is_active" name="is_active">
+                 <label>Is Active</label>
+             </div>
+
+             <form action="/create new survey/" method="get">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+
+         </form>
+    </div>
+{% endblock %}
